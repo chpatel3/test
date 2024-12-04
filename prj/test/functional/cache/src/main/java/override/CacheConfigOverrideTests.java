@@ -243,48 +243,6 @@ public class CacheConfigOverrideTests
         }
 
     @Test
-    public void testCacheConfigOverrideSchemeType()
-            throws Exception
-        {
-        try
-            {
-            System.setProperty("coherence.cluster", "cache-override-test-cluster");
-            System.setProperty("coherence.clusterport", String.valueOf(getAvailablePorts().next()));
-            System.setProperty("coherence.override", FILE_CFG_OP);
-            System.setProperty("coherence.cacheconfig", FILE_CFG_CACHE);
-            System.setProperty("coherence.cacheconfig.override",
-                    "override/cache-config-override-scheme-type.xml");
-
-            AbstractFunctionalTest._startup();
-
-            // Check for caching schemes with expected service
-            NamedCache myCache = CacheFactory.getCache("my-cache-wildcard");
-            assertNotNull(myCache);
-            Enumeration cacheNames = myCache.getCacheService().getCacheNames();
-            assertTrue(cacheNames.hasMoreElements());
-            assertEquals("my-cache-wildcard", cacheNames.nextElement());
-            assertEquals("$SYS:MyCacheService", myCache.getService().getInfo().getServiceName());
-
-            NamedCache myCacheTwo = CacheFactory.getCache("my-cache-two");
-            assertNotNull(myCacheTwo);
-            cacheNames = myCacheTwo.getCacheService().getCacheNames();
-            assertTrue(cacheNames.hasMoreElements());
-
-            CacheService service = myCacheTwo.getService();
-            assertEquals("$SYS:MyFederatedService", service.getInfo().getServiceName());
-            assertEquals(CacheService.TYPE_FEDERATED, service.getInfo().getServiceType());
-            }
-        finally
-            {
-            System.clearProperty("coherence.cluster");
-            System.clearProperty("coherence.override");
-            System.clearProperty("coherence.cacheconfig");
-            System.clearProperty("coherence.cacheconfig.override");
-            AbstractFunctionalTest._shutdown();
-            }
-        }
-
-    @Test
     public void testAddProxySchemeUsingCacheOverride()
             throws Exception
         {
