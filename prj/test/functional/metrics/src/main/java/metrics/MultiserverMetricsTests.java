@@ -384,7 +384,7 @@ public class MultiserverMetricsTests
         Map map = new HashMap();
         for (int i = 0; i < count; i++)
             {
-            Object key = isRamOrFlash ? new UUID().toString() : Integer.valueOf(offset + i).toString();
+            Object key = Integer.valueOf(offset + i).toString();
             map.put(key, data);
             cache.get(key);
              }
