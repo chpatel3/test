@@ -648,136 +648,9 @@ to find specific notes on changes suggested for production use.
         </init-params>
       </service>
 
-     <service id="12">
-        <service-type>FederatedCache</service-type>
-        <service-component>PartitionedService.PartitionedCache.FederatedCache</service-component>
-        <use-filters>
-          <filter-name/>
-        </use-filters>
-        <init-params>
-          <!--
-          Note: standard-lease-milliseconds is not supported by Federated Cache Service.
-          -->
-          <init-param id="1">
-            <param-name>standard-lease-milliseconds</param-name>
-            <param-value>0</param-value>
-          </init-param>
-          <init-param id="2">
-            <param-name>lease-granularity</param-name>
-            <param-value>thread</param-value>
-          </init-param>
-          <init-param id="3">
-            <param-name>partition-count</param-name>
-            <param-value>257</param-value>
-          </init-param>
-          <init-param id="4">
-            <param-name>local-storage</param-name>
-            <param-value system-property="coherence.distributed.localstorage">true</param-value>
-          </init-param>
-          <init-param id="5">
-            <param-name>transfer-threshold</param-name>
-            <param-value system-property="coherence.distributed.transfer">512</param-value>
-          </init-param>
-          <init-param id="6">
-            <param-name>backup-count</param-name>
-            <param-value system-property="coherence.distributed.backupcount">1</param-value>
-          </init-param>
-          <init-param id="8">
-            <param-name>thread-count</param-name>
-            <param-value system-property="coherence.distributed.threads"></param-value>
-          </init-param>
-          <init-param id="9">
-            <param-name>key-associator</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="10">
-            <param-name>key-partitioning</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="11">
-            <param-name>partition-listener</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="12">
-            <param-name>task-hung-threshold</param-name>
-            <param-value system-property="coherence.distributed.task.hung"></param-value>
-          </init-param>
-          <init-param id="13">
-            <param-name>task-timeout</param-name>
-            <param-value system-property="coherence.distributed.task.timeout"></param-value>
-          </init-param>
-          <init-param id="14">
-            <param-name>request-timeout</param-name>
-            <param-value system-property="coherence.distributed.request.timeout"></param-value>
-          </init-param>
-          <init-param id="15">
-            <param-name>serializer</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="16">
-            <param-name>backup-count-after-writebehind</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="17">
-            <param-name>guardian-timeout</param-name>
-            <param-value system-property="coherence.distributed.guard.timeout"></param-value>
-          </init-param>
-          <init-param id="18">
-            <param-name>service-failure-policy</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="19">
-            <param-name>member-listener</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="20">
-            <param-name>partitioned-quorum-policy-scheme</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="21">
-            <param-name>partition-assignment-strategy</param-name>
-            <param-value system-property="coherence.distributed.assignmentstrategy">simple</param-value>
-          </init-param>
-          <init-param id="22">
-            <param-name>compressor</param-name>
-            <param-value system-property="coherence.distributed.compressor">none</param-value>
-          </init-param>
-          <init-param id="23">
-            <param-name>service-priority</param-name>
-            <param-value>10</param-value>
-          </init-param>
-          <init-param id="24">
-            <param-name>event-dispatcher-priority</param-name>
-            <param-value>10</param-value>
-          </init-param>
-          <init-param id="25">
-            <param-name>worker-priority</param-name>
-            <param-value>5</param-value>
-          </init-param>
-          <init-param id="26">
-            <param-name>reliable-transport</param-name>
-            <param-value system-property="coherence.distributed.transport.reliable"></param-value>
-          </init-param>
-          <init-param id="27">
-            <param-name>async-backup</param-name>
-            <param-value system-property="coherence.distributed.asyncbackup">false</param-value>
-          </init-param>
-          <init-param id="28">
-            <param-name>persistence</param-name>
-            <param-value></param-value>
-          </init-param>
-          <init-param id="29">
-            <param-name>thread-count-max</param-name>
-            <param-value system-property="coherence.distributed.threads.max"></param-value>
-          </init-param>
-          <init-param id="30">
-            <param-name>thread-count-min</param-name>
-            <param-value system-property="coherence.distributed.threads.min"></param-value>
-          </init-param>
-        </init-params>
-      </service>
+      <!-- reserved service id="12" -->
 
-     <service id="13">
+      <service id="13">
         <service-type>PagedTopic</service-type>
         <service-component>PartitionedService.PartitionedCache.PagedTopic</service-component>
         <use-filters>
@@ -1137,21 +1010,6 @@ to find specific notes on changes suggested for production use.
       </socket-provider>
     </socket-providers>
 
-    <journaling-config>
-      <ramjournal-manager>
-        <maximum-value-size>64KB</maximum-value-size>
-        <maximum-size system-property="coherence.ramjournal.size">25%</maximum-size>
-      </ramjournal-manager>
-      <flashjournal-manager>
-        <maximum-size system-property="coherence.flashjournal.size"></maximum-size>
-        <block-size>256KB</block-size>
-        <directory system-property="coherence.flashjournal.dir"></directory>
-        <async-limit>16MB</async-limit>
-        <tmp-purge-delay system-property="coherence.flashjournal.purgedelay"></tmp-purge-delay>
-        <high-journal-size system-property="coherence.flashjournal.highjournalsize">11GB</high-journal-size>
-      </flashjournal-manager>
-    </journaling-config>
-
     <storage-authorizers>
       <storage-authorizer id="auditing">
         <class-name>com.tangosol.net.security.AuditingAuthorizer</class-name>
@@ -1299,5 +1157,6 @@ to find specific notes on changes suggested for production use.
     <build-number>${project.build.number}</build-number>
     <build-description>${project.impl.description}</build-description>
     <version>${project.version.official}</version>
+    <version-prefix>${project.version.prefix}</version-prefix>
   </license-config>
 </coherence>
