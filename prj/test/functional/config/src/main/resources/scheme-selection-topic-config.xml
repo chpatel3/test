@@ -41,14 +41,6 @@
       <scheme-name>dist-backing-class-scheme</scheme-name>
     </cache-mapping>
     <cache-mapping>
-      <cache-name>dist-backing-flash*</cache-name>
-      <scheme-name>dist-backing-flash-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
-      <cache-name>dist-backing-ram*</cache-name>
-      <scheme-name>dist-backing-ram-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
       <cache-name>dist-backing-rwbm-class*</cache-name>
       <scheme-name>dist-backing-rwbm-class-scheme</scheme-name>
     </cache-mapping>
@@ -57,20 +49,12 @@
       <scheme-name>dist-backing-rwbm-external-scheme</scheme-name>
     </cache-mapping>
     <cache-mapping>
-      <cache-name>dist-backing-rwbm-flash*</cache-name>
-      <scheme-name>dist-backing-rwbm-flash-journal-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
       <cache-name>dist-backing-rwbm-local*</cache-name>
       <scheme-name>dist-backing-rwbm-local-scheme</scheme-name>
     </cache-mapping>
     <cache-mapping>
       <cache-name>dist-backing-rwbm-paged-external*</cache-name>
       <scheme-name>dist-backing-rwbm-paged-external-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
-      <cache-name>dist-backing-rwbm-ram*</cache-name>
-      <scheme-name>dist-backing-rwbm-ram-journal-scheme</scheme-name>
     </cache-mapping>
     <cache-mapping>
       <cache-name>external-async-bdb*</cache-name>
@@ -144,19 +128,6 @@
       <scheme-name>near-back-repl-scheme</scheme-name>
     </cache-mapping>
     <cache-mapping>
-      <cache-name>near-back-trans*</cache-name>
-      <scheme-name>near-back-trans-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
-      <cache-name>near-back-ram*</cache-name>
-      <scheme-name>near-back-ram-journal-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
-      <cache-name>near-back-flash*</cache-name>
-      <scheme-name>near-back-flash-journal-scheme</scheme-name>
-    </cache-mapping>
-
-    <cache-mapping>
       <cache-name>paged-external-async-bdb*</cache-name>
       <scheme-name>paged-external-async-bdb-scheme</scheme-name>
     </cache-mapping>
@@ -202,20 +173,6 @@
       <cache-name>rwbm-internal-class*</cache-name>
       <scheme-name>rwbm-internal-class-scheme</scheme-name>
     </cache-mapping>
-    <cache-mapping>
-      <cache-name>rwbm-internal-flash*</cache-name>
-      <scheme-name>rwbm-internal-flash-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
-      <cache-name>rwbm-internal-ram*</cache-name>
-      <scheme-name>rwbm-internal-ram-scheme</scheme-name>
-    </cache-mapping>
-
-    <cache-mapping>
-      <cache-name>trans*</cache-name>
-      <scheme-name>trans-scheme</scheme-name>
-    </cache-mapping>
-
     <cache-mapping>
       <cache-name>all-defaulted-cache</cache-name>
       <scheme-name>cache-defaults-scheme</scheme-name>
@@ -275,16 +232,6 @@
       <value-type>String</value-type>
     </topic-mapping>
     <topic-mapping>
-      <topic-name>topic-dist-backing-flash*</topic-name>
-      <scheme-name>topic-dist-backing-flash-scheme</scheme-name>
-      <value-type>String</value-type>
-    </topic-mapping>
-    <topic-mapping>
-      <topic-name>topic-dist-backing-ram*</topic-name>
-      <scheme-name>topic-dist-backing-ram-scheme</scheme-name>
-      <value-type>String</value-type>
-    </topic-mapping>
-    <topic-mapping>
       <topic-name>topic-with-durable-subscriber*</topic-name>
       <scheme-name>topic-dist-backing-local-scheme</scheme-name>
       <value-type>String</value-type>
@@ -323,26 +270,6 @@
       <page-size system-property="page.size">{page-size 10}</page-size>
       <expiry-delay>{expiry-delay 0}</expiry-delay>
       <retain-consumed>{retain-consumed false}</retain-consumed>
-    </paged-topic-scheme>
-
-    <paged-topic-scheme>
-      <scheme-name>topic-dist-backing-flash-scheme</scheme-name>
-      <service-name>topic-dist-backing-flash-service</service-name>
-      <serializer>pof</serializer>
-      <storage>flashjournal</storage>
-      <autostart>true</autostart>
-      <page-size system-property="page.size">{page-size 10}</page-size>
-      <expiry-delay>{expiry-delay 0}</expiry-delay>
-    </paged-topic-scheme>
-
-    <paged-topic-scheme>
-      <scheme-name>topic-dist-backing-ram-scheme</scheme-name>
-      <service-name>topic-dist-backing-ram-service</service-name>
-      <serializer>pof</serializer>
-      <storage>ramjournal</storage>
-      <autostart>true</autostart>
-      <page-size system-property="page.size">{page-size 10}</page-size>
-      <expiry-delay>{expiry-delay 0}</expiry-delay>
     </paged-topic-scheme>
 
     <paged-topic-scheme>
@@ -401,14 +328,6 @@
    </distributed-scheme>
 
    <distributed-scheme>
-     <scheme-name>dist-backing-flash-scheme</scheme-name>
-     <service-name>dist-backing-flash-service</service-name>
-     <backing-map-scheme>
-        <flashjournal-scheme/>
-     </backing-map-scheme>
-   </distributed-scheme>
-
-   <distributed-scheme>
      <scheme-name>dist-backing-overflow-scheme</scheme-name>
      <service-name>dist-backing-overflow-service</service-name>
      <backing-map-scheme>
@@ -425,14 +344,6 @@
        <paged-external-scheme>
         <scheme-ref>paged-external-scheme</scheme-ref>
        </paged-external-scheme>
-     </backing-map-scheme>
-   </distributed-scheme>
-
-   <distributed-scheme>
-     <scheme-name>dist-backing-ram-scheme</scheme-name>
-     <service-name>dist-backing-ram-service</service-name>
-     <backing-map-scheme>
-        <ramjournal-scheme/>
      </backing-map-scheme>
    </distributed-scheme>
 
@@ -471,30 +382,6 @@
             <external-scheme>
               <scheme-ref>external-nio-file-scheme</scheme-ref>
             </external-scheme>
-          </internal-cache-scheme>
-        </read-write-backing-map-scheme>
-     </backing-map-scheme>
-   </distributed-scheme>
-
-   <distributed-scheme>
-     <scheme-name>dist-backing-rwbm-flash-journal-scheme</scheme-name>
-     <service-name>dist-backing-rwbm-flash-journal-service</service-name>
-     <backing-map-scheme>
-        <read-write-backing-map-scheme>
-          <internal-cache-scheme>
-            <flashjournal-scheme/>
-          </internal-cache-scheme>
-        </read-write-backing-map-scheme>
-     </backing-map-scheme>
-   </distributed-scheme>
-
-   <distributed-scheme>
-     <scheme-name>dist-backing-rwbm-ram-journal-scheme</scheme-name>
-     <service-name>dist-backing-rwbm-ram-journal-service</service-name>
-     <backing-map-scheme>
-        <read-write-backing-map-scheme>
-          <internal-cache-scheme>
-            <ramjournal-scheme/>
           </internal-cache-scheme>
         </read-write-backing-map-scheme>
      </backing-map-scheme>
@@ -663,38 +550,6 @@
      </back-scheme>
    </near-scheme>
 
-   <near-scheme>
-     <scheme-name>near-back-trans-scheme</scheme-name>
-     <front-scheme>
-       <local-scheme/>
-     </front-scheme>
-     <back-scheme>
-       <transactional-scheme>
-        <scheme-ref>trans-scheme</scheme-ref>
-       </transactional-scheme>
-     </back-scheme>
-   </near-scheme>
-
-   <near-scheme>
-     <scheme-name>near-back-ram-journal-scheme</scheme-name>
-     <front-scheme>
-       <local-scheme/>
-     </front-scheme>
-     <back-scheme>
-       <ramjournal-scheme/>
-     </back-scheme>
-   </near-scheme>
-
-   <near-scheme>
-     <scheme-name>near-back-flash-journal-scheme</scheme-name>
-     <front-scheme>
-       <local-scheme/>
-     </front-scheme>
-     <back-scheme>
-       <flashjournal-scheme/>
-     </back-scheme>
-   </near-scheme>
-
    <overflow-scheme>
      <scheme-name>overflow-front-local-scheme</scheme-name>
      <front-scheme>
@@ -792,13 +647,6 @@
    </read-write-backing-map-scheme>
 
    <read-write-backing-map-scheme>
-     <scheme-name>rwbm-internal-flash-scheme</scheme-name>
-     <internal-cache-scheme>
-        <flashjournal-scheme/>
-     </internal-cache-scheme>
-   </read-write-backing-map-scheme>
-
-   <read-write-backing-map-scheme>
      <scheme-name>rwbm-internal-local-scheme</scheme-name>
      <internal-cache-scheme>
        <local-scheme/>
@@ -822,19 +670,6 @@
        </paged-external-scheme>
      </internal-cache-scheme>
    </read-write-backing-map-scheme>
-
-   <read-write-backing-map-scheme>
-     <scheme-name>rwbm-internal-ram-scheme</scheme-name>
-     <internal-cache-scheme>
-        <ramjournal-scheme/>
-     </internal-cache-scheme>
-   </read-write-backing-map-scheme>
-
-   <transactional-scheme>
-     <scheme-name>trans-scheme</scheme-name>
-     <service-name>TransService</service-name>
-   </transactional-scheme>
-
 
   </caching-schemes>
 
