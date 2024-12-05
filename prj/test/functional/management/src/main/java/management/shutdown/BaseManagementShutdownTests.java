@@ -609,8 +609,8 @@ public abstract class BaseManagementShutdownTests {
      * The list of services used by this test class.
      */
     private static final String[] SERVICES_LIST = {SERVICE_NAME, PROXY_SERVICE_NAME,
-            "DistributedCachePersistence", "FlashJournalService", HttpHelper.getServiceName(),
-            "RamJournalService", INVOCATION_SERVICE_NAME, MetricsHttpHelper.getServiceName()};
+            "DistributedCachePersistence", HttpHelper.getServiceName(),
+            INVOCATION_SERVICE_NAME, MetricsHttpHelper.getServiceName()};
 
     /**
      * The list of services used by topics.
