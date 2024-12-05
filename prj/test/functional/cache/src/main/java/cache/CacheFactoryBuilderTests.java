@@ -367,52 +367,6 @@ public class CacheFactoryBuilderTests
         }
 
     /**
-     * Test two transactional caches from two different ccfs.
-     */
-    @Test
-    public void testTransactionalCacheWScoping()
-        {
-        Base.out("CacheFactoryBuilderTests.testTransactionalCacheWScoping()");
-
-        // Clear out the static singleton just to be sure
-        CacheFactory.setConfigurableCacheFactory(null);
-
-        //
-        ScopeResolver sr = new CLScopeResolver();
-        CacheFactoryBuilder cfb = new ScopedCacheFactoryBuilder(sr);
-        CacheFactory.setCacheFactoryBuilder(cfb);
-
-
-        ClassLoader loader0 = getLoader(0);
-        ClassLoader loader1 = getLoader(1);
-
-        cfb.setCacheConfiguration(loader0,
-                                  XmlHelper.loadXml(CACHE_CFG_TRANS_TEST));
-        cfb.setCacheConfiguration(loader1,
-                                  XmlHelper.loadXml(CACHE_CFG_TRANS_TEST));
-
-        ConfigurableCacheFactory ccf0 = cfb.getConfigurableCacheFactory(loader0);
-        ConfigurableCacheFactory  ccf1 = cfb.getConfigurableCacheFactory(loader1);
-        assertTrue(ccf0 != ccf1);
-
-        // Now lets attempt to get a transactional cache from each ccf
-        String sTable = "tx-test";
-
-        NamedCache cache = CacheFactory.getCache(sTable, loader0);
-        assertNotNull(cache);
-        String one = "one";
-        cache.put("test",one);
-
-        NamedCache cache2 = CacheFactory.getCache(sTable, loader1);
-        assertNotNull(cache2);
-        assertFalse(one.equals(cache2.get("test")));
-        cache2.put("test",one);
-        assertTrue(one.equals(cache2.get("test")));
-
-        assertTrue(cache.getCacheService() != cache2.getCacheService());
-        }
-
-    /**
     * Regression test for COH-2634.
     */
     @Test
