@@ -40,7 +40,7 @@ configurations {
 gradlePlugin {
     plugins {
         coherencePof {
-            id = 'com.oracle.coherence'
+            id = 'com.oracle.coherence.ce'
             implementationClass = 'com.oracle.coherence.gradle.CoherencePlugin'
         }
     }
