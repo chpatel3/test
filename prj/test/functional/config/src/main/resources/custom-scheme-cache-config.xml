@@ -28,10 +28,6 @@
       <scheme-name>dist-backing-external-custom-scheme</scheme-name>
     </cache-mapping>
     <cache-mapping>
-      <cache-name>dist-backing-flashjournal-custom*</cache-name>
-      <scheme-name>dist-backing-flashjournal-custom-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
       <cache-name>dist-backing-overflow-custom*</cache-name>
       <scheme-name>dist-backing-overflow-custom-scheme</scheme-name>
     </cache-mapping>
@@ -50,10 +46,6 @@
     <cache-mapping>
       <cache-name>dist-backing-paged-external-custom*</cache-name>
       <scheme-name>dist-backing-paged-external-custom-scheme</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
-      <cache-name>dist-backing-ramjournal-custom*</cache-name>
-      <scheme-name>dist-backing-ramjournal-custom-scheme</scheme-name>
     </cache-mapping>
     <cache-mapping>
       <cache-name>dist-backing-rwbm-custom*</cache-name>
@@ -132,16 +124,6 @@
     </distributed-scheme>
 
     <distributed-scheme>
-      <scheme-name>dist-backing-flashjournal-custom-scheme</scheme-name>
-      <service-name>dist-backing-flashjournal-custom-service</service-name>
-      <backing-map-scheme>
-        <flashjournal-scheme>
-          <scheme-ref>flashjournal-custom-scheme</scheme-ref>
-        </flashjournal-scheme>
-      </backing-map-scheme>
-    </distributed-scheme>
-
-    <distributed-scheme>
       <scheme-name>dist-backing-overflow-custom-scheme</scheme-name>
       <service-name>dist-backing-overflow-custom-service</service-name>
       <backing-map-scheme>
@@ -189,16 +171,6 @@
         <paged-external-scheme>
           <scheme-ref>paged-external-custom-scheme</scheme-ref>
         </paged-external-scheme>
-      </backing-map-scheme>
-    </distributed-scheme>
-
-    <distributed-scheme>
-      <scheme-name>dist-backing-ramjournal-custom-scheme</scheme-name>
-      <service-name>dist-backing-ramjournal-custom-service</service-name>
-      <backing-map-scheme>
-        <ramjournal-scheme>
-          <scheme-ref>ramjournal-custom-scheme</scheme-ref>
-        </ramjournal-scheme>
       </backing-map-scheme>
     </distributed-scheme>
 
@@ -263,12 +235,6 @@
       </custom-store-manager>
       <high-units>10000</high-units>
     </external-scheme>
-
-    <flashjournal-scheme>
-      <scheme-name>flashjournal-custom-scheme</scheme-name>
-      <class-name>com.oracle.coherence.testing.CustomClasses$CustomJournal
-      </class-name>
-    </flashjournal-scheme>
 
     <local-scheme>
       <scheme-name>local-custom-store-scheme</scheme-name>
@@ -417,12 +383,6 @@
       </async-store-manager>
       <page-limit>2</page-limit>
     </paged-external-scheme>
-
-    <ramjournal-scheme>
-      <scheme-name>ramjournal-custom-scheme</scheme-name>
-      <class-name>com.oracle.coherence.testing.CustomClasses$CustomJournal
-      </class-name>
-    </ramjournal-scheme>
 
     <read-write-backing-map-scheme>
       <scheme-name>rwbm-internal-custom-scheme</scheme-name>
