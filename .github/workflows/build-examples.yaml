@@ -16,6 +16,7 @@ on:
     - gh-pages
     - p4-integ*
     - last-p4-*
+    - main
   pull_request:
     types:
       - opened

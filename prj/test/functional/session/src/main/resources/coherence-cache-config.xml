@@ -105,16 +105,6 @@ Elements" page on the Coherence Wiki (http://wiki.tangosol.com).
     </cache-mapping>
 
     <cache-mapping>
-      <cache-name>flash-*</cache-name>
-      <scheme-name>example-flash</scheme-name>
-    </cache-mapping>
-
-    <cache-mapping>
-      <cache-name>ram-*</cache-name>
-      <scheme-name>example-ram</scheme-name>
-    </cache-mapping>
-
-    <cache-mapping>
       <cache-name>part-*</cache-name>
       <scheme-name>example-partitioned-back</scheme-name>
     </cache-mapping>

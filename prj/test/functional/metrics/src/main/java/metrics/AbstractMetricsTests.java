@@ -97,30 +97,6 @@ public abstract class AbstractMetricsTests
         }
 
     @Test
-    public void testCollectionFromFlashBackingMap() throws Exception
-        {
-        NamedCache cache = getNamedCache("flash-test1");
-        cache.put(1, "hello");
-        cache.put(2, "world");
-        cache.put(3, "bye");
-        cache.get(1);
-        cache.get(4);
-
-        assertClusterSize(cache);
-
-        Map<String, String> tags = new LinkedHashMap<>();
-        tags.put("name", "flash-test1");
-
-        Eventually.assertThat(invoking(this).getCacheMetric(s_nMetricsHttpPort, "Coherence.Cache.Size", tags), is(3L));
-        Eventually.assertThat(invoking(this).getCacheMetric(s_nMetricsHttpPort, "Coherence.Cache.Misses", tags), is(1L));
-        Eventually.assertThat(invoking(this).getCacheMetric(s_nMetricsHttpPort, "Coherence.Cache.Hits", tags), is(1L));
-
-        tags.clear();
-        tags.put("name", "FlashJournalRM");
-        Eventually.assertThat(invoking(this).getCacheMetric(s_nMetricsHttpPort, "Coherence.Journal.FileCount", tags), greaterThanOrEqualTo(1L));
-        }
-
-    @Test
     public void testMetricsRequestWithAcceptEncodingGzip()
             throws Exception
         {

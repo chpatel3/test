@@ -301,8 +301,6 @@ public class MultiserverMetricsTests
 
         NamedCache ncPersistence1 = getNamedCache("persistence-test1");
         NamedCache ncPersistence2 = getNamedCache("persistence-test2");
-        NamedCache ncFlash         = getNamedCache("flash-test1");
-        NamedCache ncRam           = getNamedCache("ram-test1");
         NamedCache ncNear          = getNamedCache("near-test1");
         NamedCache ncRepl          = getNamedCache("repl-test1");
 
@@ -332,14 +330,6 @@ public class MultiserverMetricsTests
             ncPersistence2.aggregate(AlwaysFilter.INSTANCE, new Count());
             ncPersistence2.invokeAll(upperCase());
             removeData(ncPersistence2, LOOP, j * ITERS);
-
-            // flash
-            addData(ncFlash, 100, LOOP, j * ITERS);
-            ncFlash.aggregate(AlwaysFilter.INSTANCE(), new Count());
-
-            // ram
-            addData(ncRam, 100, LOOP, j * ITERS);
-            ncRam.aggregate(new Count());
 
             // near
             addData(ncNear, 100, LOOP, j * ITERS);
@@ -390,9 +380,6 @@ public class MultiserverMetricsTests
     private void addData(NamedCache cache, int dataSize, int count, int offset)  throws InterruptedException
         {
         String data = getData(dataSize);
-
-        // make UUID the string from ram and flash so it keeps growing
-        boolean isRamOrFlash = cache.getCacheName().startsWith("ram") || cache.getCacheName().startsWith("flash");
 
         Map map = new HashMap();
         for (int i = 0; i < count; i++)

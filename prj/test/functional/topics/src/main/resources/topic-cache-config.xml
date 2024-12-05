@@ -236,12 +236,6 @@
     </paged-topic-scheme>
 
     <paged-topic-scheme>
-      <scheme-name>elastic-topic-scheme</scheme-name>
-      <scheme-ref>common-pof-topic-scheme</scheme-ref>
-      <storage>flashjournal</storage>
-    </paged-topic-scheme>
-
-    <paged-topic-scheme>
       <scheme-name>pof-fixed-scheme</scheme-name>
       <scheme-ref>common-pof-topic-scheme</scheme-ref>
       <page-size>10</page-size>
