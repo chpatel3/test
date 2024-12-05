@@ -11,13 +11,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.oracle.coherence.guides</groupId>
+  <groupId>com.oracle.coherence.ce.guides</groupId>
   <artifactId>executor</artifactId>
   <version>${revision}</version>
   <name>Coherence Guides - Executor Service</name>
 
   <properties>
-    <revision>15.1.1-0-0-SNAPSHOT</revision>
+    <revision>14.1.2-0-0-SNAPSHOT</revision>
 
     <coherence.group.id>com.oracle.coherence</coherence.group.id>
     <coherence.version>${project.version}</coherence.version>

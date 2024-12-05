@@ -18,7 +18,7 @@
     <relativePath/>
   </parent>
 
-  <groupId>com.oracle.coherence.guides</groupId>
+  <groupId>com.oracle.coherence.ce.guides</groupId>
   <artifactId>response-caching</artifactId>
   <version>${revision}</version>
   <name>Coherence Guides - Response Caching</name>

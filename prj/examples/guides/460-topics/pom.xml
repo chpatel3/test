@@ -11,7 +11,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.oracle.coherence.guides</groupId>
+  <groupId>com.oracle.coherence.ce.guides</groupId>
   <artifactId>topics</artifactId>
   <version>${revision}</version>
   <name>Coherence Guides - Topics</name>
@@ -161,7 +161,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>libs</classpathPrefix>
-              <mainClass>com.oracle.coherence.guides.topics.ChatApplication</mainClass>
+              <mainClass>com.oracle.coherence.ce.guides.topics.ChatApplication</mainClass>
               <useUniqueVersions>false</useUniqueVersions>
             </manifest>
           </archive>
