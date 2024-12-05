@@ -67,9 +67,6 @@
   </dependencyManagement>
 
   <properties>
-    <!-- version prefix used for cluster compatibility -->
-    <project.version.prefix>14.1.2</project.version.prefix>
-
     <!-- The groupId of the Coherence product -->
     <coherence.group.id>com.oracle.coherence.ce</coherence.group.id>
 
