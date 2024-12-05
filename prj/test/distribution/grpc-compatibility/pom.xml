@@ -24,9 +24,6 @@
 
   <modules>
     <module>grpc-compatibility-core</module>
-    <module>grpc-14.1.1.2206</module>
-    <module>grpc-14.1.2.0</module>
-    <module>grpc-15.1.1.0</module>
     <module>grpc-ce-22.06</module>
     <module>grpc-ce-latest</module>
     <module>grpc-ce-main</module>
