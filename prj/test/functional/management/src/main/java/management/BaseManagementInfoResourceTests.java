@@ -4722,14 +4722,6 @@ public abstract class BaseManagementInfoResourceTests
         cache = CacheFactory.getCache(PERSISTENCE_CACHE_NAME);
         cache.put(1, binValue);
 
-        // fill ram cache
-        cache = CacheFactory.getCache("ram-test");
-        cache.put(1, binValue);
-
-        // fill flash cache
-        cache = CacheFactory.getCache("flash-test");
-        cache.put(1, binValue);
-
         // fill clear/truncate cache
         cache = CacheFactory.getCache(CLEAR_CACHE_NAME);
         cache.put(1, binValue);
@@ -5014,7 +5006,7 @@ public abstract class BaseManagementInfoResourceTests
     /**
      * The list of caches used by this test class.
      */
-    private static final String[] CACHES_LIST = {CACHE_NAME, "near-test", "ram-test", "flash-test", CACHE_NAME_FOO, PERSISTENCE_CACHE_NAME, CLEAR_CACHE_NAME, "view-cache"};
+    private static final String[] CACHES_LIST = {CACHE_NAME, "near-test", CACHE_NAME_FOO, PERSISTENCE_CACHE_NAME, CLEAR_CACHE_NAME, "view-cache"};
 
     /**
      * The list of topics caches used by this test class.

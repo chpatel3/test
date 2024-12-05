@@ -26,14 +26,6 @@
       <scheme-name>dist-near</scheme-name>
     </cache-mapping>
     <cache-mapping>
-      <cache-name>ram-*</cache-name>
-      <scheme-name>dist-ram</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
-      <cache-name>flash-*</cache-name>
-      <scheme-name>dist-flash</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
       <cache-name>view-*</cache-name>
       <scheme-name>view-default</scheme-name>
     </cache-mapping>
