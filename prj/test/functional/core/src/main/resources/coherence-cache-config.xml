@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <!--
-  Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+  Copyright (c) 2000, 2024, Oracle and/or its affiliates.
 
   Licensed under the Universal Permissive License v 1.0 as shown at
   https://oss.oracle.com/licenses/upl.
   -->
-
 
 <!--
 Note: This XML document is an example Coherence Cache Configuration deployment
@@ -329,34 +328,6 @@ Elements" page on the Coherence Wiki (http://wiki.tangosol.com).
     </external-scheme>
 
     <!--
-    Scheme that is using a RAM journal.
-    -->
-    <distributed-scheme>
-      <scheme-name>example-ram</scheme-name>
-      <service-name>DistributedCache</service-name>
-
-      <backing-map-scheme>
-         <ramjournal-scheme/>
-      </backing-map-scheme>
-
-      <autostart>true</autostart>
-    </distributed-scheme>
-
-    <!--
-    Scheme that is using a flash (SSD) journal.
-    -->
-     <distributed-scheme>
-      <scheme-name>example-flash</scheme-name>
-      <service-name>DistributedCache</service-name>
-
-      <backing-map-scheme>
-         <flashjournal-scheme/>
-      </backing-map-scheme>
-
-      <autostart>true</autostart>
-    </distributed-scheme>
-
-    <!--
     Invocation Service scheme.
     -->
     <invocation-scheme>
@@ -388,14 +359,6 @@ Elements" page on the Coherence Wiki (http://wiki.tangosol.com).
 
       <autostart system-property="coherence.extend.enabled">false</autostart>
     </proxy-scheme>
-
-    <!--
-    Transactional caching scheme.
-    -->
-    <transactional-scheme>
-      <scheme-name>example-transactional</scheme-name>
-      <service-name>TransactionalCache</service-name>
-    </transactional-scheme>
 
     <paged-topic-scheme>
       <scheme-name>topic-server</scheme-name>

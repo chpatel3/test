@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+ * Copyright (c) 2000, 2024, Oracle and/or its affiliates.
  *
  * Licensed under the Universal Permissive License v 1.0 as shown at
  * https://oss.oracle.com/licenses/upl.
@@ -36,7 +36,7 @@ public class CacheFactoryTests
     @After
     public void cleanup()
         {
-        System.setProperty("tangosol.coherence.edition", "GE");
+        System.setProperty("tangosol.coherence.edition", "CE");
         clearCoherence();
         }
 
@@ -55,7 +55,7 @@ public class CacheFactoryTests
     @Test
     public void testGetEdition()
         {
-        assertThat(CacheFactory.getEdition(), is("GE"));
+        assertThat(CacheFactory.getEdition(), is("CE"));
 
         clearCoherence();
 
