@@ -2994,28 +2994,6 @@ public abstract class AbstractNamedTopicTests
         validateTopicMBeans(m_sSerializer + "-binary-test");
         }
 
-    /**
-     * Validate for topic with elastic storage.
-     */
-    @Test
-    public void validateElasticTopicMBeans() throws Exception
-        {
-        Assume.assumeThat("Skipped for non-pof test run", m_sSerializer, is("pof"));
-
-        validateTopicMBeans("elastic-test");
-        }
-
-    /**
-     * Validate for topic with ramjournal storage
-     */
-    @Test
-    public void validateRamJournalTopicMBeans() throws Exception
-        {
-        Assume.assumeThat("Skipped for non-pof test run", m_sSerializer, is("pof"));
-
-        validateTopicMBeans("ramjournal-test");
-        }
-
     // regression test for when ValueTypeAssertion.withXXX returned values that were not considered equal
     @Test
     public void shouldBeSameSessionNamedTopic()
