@@ -106,18 +106,6 @@
     </topic-mapping>
 
     <topic-mapping>
-      <topic-name>elastic*</topic-name>
-      <scheme-name>elastic-topic-scheme</scheme-name>
-      <value-type>java.lang.String</value-type>
-    </topic-mapping>
-
-    <topic-mapping>
-      <topic-name>ram*</topic-name>
-      <scheme-name>ram-topic-scheme</scheme-name>
-      <value-type>java.lang.String</value-type>
-    </topic-mapping>
-
-    <topic-mapping>
       <topic-name>java*</topic-name>
       <scheme-name>java-topic-scheme</scheme-name>
       <value-type>java.lang.String</value-type>

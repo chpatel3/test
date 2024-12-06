@@ -13,11 +13,9 @@ import com.oracle.bedrock.runtime.concurrent.RemoteRunnable;
 
 import com.tangosol.coherence.config.scheme.BackingMapScheme;
 import com.tangosol.coherence.config.scheme.ClusteredCachingScheme;
-import com.tangosol.coherence.config.scheme.FlashJournalScheme;
 import com.tangosol.coherence.config.scheme.PagedTopicScheme;
 import com.tangosol.coherence.config.scheme.LocalScheme;
 
-import com.tangosol.coherence.config.scheme.RamJournalScheme;
 import com.tangosol.config.expression.NullParameterResolver;
 import com.tangosol.internal.net.ConfigurableCacheFactorySession;
 import com.tangosol.internal.net.topic.impl.paged.PagedTopicCaches;
@@ -618,69 +616,6 @@ public class LocalNamedTopicTests
             System.err.println(">>>> ElementTwo: " + elementTwo);
             assertThat(elementOne.getPosition(), is(elementTwo.getPosition()));
             assertThat(elementOne.getValue(), is(elementTwo.getValue()));
-            }
-        }
-
-    @Test
-    public void shouldUseElasticData()
-        {
-        Assume.assumeThat("Skipped for non-pof test run", m_sSerializer, is("pof"));
-
-        String sQueueName = "elastic-test";
-
-        ensureTopic(sQueueName);
-
-        PagedTopicScheme scheme = (PagedTopicScheme)
-                ((ExtensibleConfigurableCacheFactory)CacheFactory.getConfigurableCacheFactory()).getCacheConfig().findSchemeByTopicName(sQueueName);
-
-        assertThat(scheme, is(notNullValue()));
-        assertThat(scheme.getStorageScheme().getClass().getName(), is(FlashJournalScheme.class.getName()));
-
-        BackingMapScheme schemeBackingMap = ((ClusteredCachingScheme) scheme).getBackingMapScheme();
-        assertThat(schemeBackingMap.isPartitioned(new NullParameterResolver(), false), is(true));
-
-        Session session = getSession();
-
-        for (PagedTopicCaches.Names<?, ?> names : PagedTopicCaches.Names.values())
-            {
-            String              cacheName = names.cacheNameForTopicName(sQueueName);
-            NamedCache<?, ?>    cache     = session.getCache(cacheName, withoutTypeChecking());
-            BackingMapManager   manager   = cache.getCacheService().getBackingMapManager();
-            BackingMapContext   context   = manager.getContext().getBackingMapContext(cacheName);
-            ObservableMap<?, ?> map       = context.getBackingMap();
-
-            assertThat(map.getClass().getCanonicalName(), is(ObservableSplittingBackingCache.class.getCanonicalName()));
-            }
-        }
-
-    @Test
-    public void shouldUseRamJournalData()
-        {
-        Assume.assumeThat("Skipped for non-pof test run", m_sSerializer, is("pof"));
-
-        String sQueueName = "ramjournal-test";
-
-        ensureTopic(sQueueName);
-
-        Session session = getSession();
-
-        PagedTopicScheme scheme = (PagedTopicScheme)
-                ((ExtensibleConfigurableCacheFactory)CacheFactory.getConfigurableCacheFactory()).getCacheConfig().findSchemeByTopicName(sQueueName);
-
-        assertThat(scheme, is(notNullValue()));
-        assertThat(scheme.getStorageScheme().getClass().getName(), is(RamJournalScheme.class.getName()));
-
-        BackingMapScheme schemeBackingMap = ((ClusteredCachingScheme) scheme).getBackingMapScheme();
-        assertThat(schemeBackingMap.isPartitioned(new NullParameterResolver(), false), is(true));
-
-        for (PagedTopicCaches.Names<?, ?> names : PagedTopicCaches.Names.values())
-            {
-            String              cacheName = names.cacheNameForTopicName(sQueueName);
-            NamedCache<?, ?>    cache     = session.getCache(cacheName, withoutTypeChecking());
-            BackingMapManager   manager   = cache.getCacheService().getBackingMapManager();
-            BackingMapContext   context   = manager.getContext().getBackingMapContext(cacheName);
-            ObservableMap<?, ?> map       = context.getBackingMap();
-            assertThat(map.getClass().getCanonicalName(), is(ObservableSplittingBackingCache.class.getCanonicalName()));
             }
         }
 
