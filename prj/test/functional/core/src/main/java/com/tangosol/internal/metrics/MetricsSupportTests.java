@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+ * Copyright (c) 2000, 2024, Oracle and/or its affiliates.
  *
  * Licensed under the Universal Permissive License v 1.0 as shown at
  * https://oss.oracle.com/licenses/upl.
@@ -95,8 +95,6 @@ public class MetricsSupportTests
         getCache(TEST_NEAR_CACHE);
         getCache(TEST_WRITE_BEHIND_CACHE);
         getCache(TEST_WRITE_THROUGH_CACHE);
-        getCache("ram-1234");
-        getCache("flash-1234");
         getCache("persistence-1234");
         getCache("backup-persistence-1234");
 
@@ -611,54 +609,6 @@ public class MetricsSupportTests
                                     "Coherence.StorageManager.QueryContentionCount",
                                     "Coherence.StorageManager.ClearCount",
                                     "Coherence.StorageManager.RemoveCount");
-        }
-
-    @Test
-    public void shouldGetFlashJournalMetrics()
-        {
-        MetricsRegistryAdapterStub adapter = new MetricsRegistryAdapterStub();
-        MetricSupport metricSupport = new MetricSupport(registrySupplier(), Collections.singletonList(adapter));
-
-        metricSupport.register(getMBeanName(Registry.JOURNAL_TYPE, "FlashJournalRM"));
-
-        Map<String, String> mapTags = getCommonTagsWithNodeId();
-
-        mapTags.put("name", "FlashJournalRM");
-
-        assertMetricsWithoutAfterGC(adapter.getMetrics(),
-                                    mapTags,
-                                    "Coherence.Journal.BacklogCount",
-                                    "Coherence.Journal.BacklogSize",
-                                    "Coherence.Journal.CurrentCollectorLoadFactor",
-                                    "Coherence.Journal.CompactionCount",
-                                    "Coherence.Journal.ExhaustiveCompactionCount",
-                                    "Coherence.Journal.ExhaustiveCompactionTime",
-                                    "Coherence.Journal.FileCount",
-                                    "Coherence.Journal.TotalDataSize",
-                                    "Coherence.Journal.TotalFileSize");
-        }
-
-    @Test
-    public void shouldGetRamJournalMetrics()
-        {
-        MetricsRegistryAdapterStub adapter = new MetricsRegistryAdapterStub();
-        MetricSupport metricSupport = new MetricSupport(registrySupplier(), Collections.singletonList(adapter));
-
-        metricSupport.register(getMBeanName(Registry.JOURNAL_TYPE, "RamJournalRM"));
-
-        Map<String, String> mapTags = getCommonTagsWithNodeId();
-
-        mapTags.put("name", "RamJournalRM");
-
-        assertMetricsWithoutAfterGC(adapter.getMetrics(),
-                                    mapTags,
-                                    "Coherence.Journal.CurrentCollectorLoadFactor",
-                                    "Coherence.Journal.CompactionCount",
-                                    "Coherence.Journal.ExhaustiveCompactionCount",
-                                    "Coherence.Journal.ExhaustiveCompactionTime",
-                                    "Coherence.Journal.FileCount",
-                                    "Coherence.Journal.TotalDataSize",
-                                    "Coherence.Journal.TotalFileSize");
         }
 
     @Test

@@ -70,24 +70,6 @@ public class CacheFactoryTests
             }
         }
 
-    /**
-     * Test the call to {@link CacheFactory#getServiceConfig(String)}()},
-     * {@link CacheFactory#releaseCache(NamedCache)}.
-     */
-    @Test
-    public void testConfig()
-        {
-        XmlElement xmlService = CacheFactory.getServiceConfig("FederatedCache");
-        xmlService.addElement("service-name").setString("myService");
-        CacheFactory.setFederationConfig(xmlService);
-        assertEquals(xmlService, CacheFactory.getFederationConfig());
-
-        NamedCache cache = CacheFactory.getCache("testCache");
-        assertTrue(cache.getCacheService().isRunning());
-        CacheFactory.releaseCache(cache);
-        assertTrue(cache.isReleased());
-        }
-
     // ----- helpers --------------------------------------------------------
 
     /**
