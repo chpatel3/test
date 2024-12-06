@@ -20,7 +20,7 @@ import com.tangosol.run.xml.XmlDocument;
 import com.tangosol.run.xml.XmlElement;
 import com.tangosol.run.xml.XmlHelper;
 
-import org.junit.Ignore
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
