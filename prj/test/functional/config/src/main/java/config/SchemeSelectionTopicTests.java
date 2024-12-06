@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+ * Copyright (c) 2000, 2024, Oracle and/or its affiliates.
  *
  * Licensed under the Universal Permissive License v 1.0 as shown at
  * https://oss.oracle.com/licenses/upl.
@@ -9,11 +9,9 @@ package config;
 import com.oracle.coherence.common.base.Exceptions;
 import com.tangosol.coherence.config.TopicMapping;
 import com.tangosol.coherence.config.builder.SubscriberGroupBuilder;
-import com.tangosol.coherence.config.scheme.FlashJournalScheme;
 import com.tangosol.coherence.config.scheme.LocalScheme;
 import com.tangosol.coherence.config.scheme.NamedTopicScheme;
 import com.tangosol.coherence.config.scheme.PagedTopicScheme;
-import com.tangosol.coherence.config.scheme.RamJournalScheme;
 
 import com.tangosol.internal.net.topic.impl.paged.PagedTopicBackingMapManager;
 import com.tangosol.internal.net.topic.impl.paged.PagedTopicCaches;
@@ -242,57 +240,6 @@ public class SchemeSelectionTopicTests
         sleep(1000L);
         topic.destroy();
         }
-
-    @Test
-    public void testFlashJournalStorageTopicTest()
-        {
-
-        NamedTopic<String> topic = validateNamedTopic("topic-dist-backing-flash-1",
-                CacheService.TYPE_PAGED_TOPIC);
-
-        assertNotNull(topic);
-
-        PagedTopicDependencies config = getTopicDependencies("topic-dist-backing-flash-1");
-
-        assertThat(config.getElementExpiryMillis(), is(0L));
-
-
-        assertThat(false, is(config.isRetainConsumed()));
-
-        PagedTopicScheme scheme = (PagedTopicScheme) m_eccf.getCacheConfig().findSchemeByTopicName(topic.getName());
-        assertThat(scheme.getStorageScheme().getClass().getSimpleName(), is(FlashJournalScheme.class.getSimpleName()));
-
-        // avoid race condition between operations completing for topics and destroy.
-        // without sleep resulted in deadlock till leaving cluster.
-        sleep(1000L);
-        topic.destroy();
-        }
-
-    @Test
-    public void testRamJournalStorageTopicTest()
-        {
-
-        NamedTopic<String> topic = validateNamedTopic("topic-dist-backing-ram-1",
-                CacheService.TYPE_PAGED_TOPIC);
-
-        assertNotNull(topic);
-
-        PagedTopicDependencies config = getTopicDependencies("topic-dist-backing-ram-1");
-
-        assertThat(config.getElementExpiryMillis(), is(0L));
-
-
-        assertThat(false, is(config.isRetainConsumed()));
-
-        PagedTopicScheme scheme = (PagedTopicScheme) m_eccf.getCacheConfig().findSchemeByTopicName(topic.getName());
-        assertThat(scheme.getStorageScheme().getClass().getSimpleName(), is(RamJournalScheme.class.getSimpleName()));
-
-        // avoid race condition between operations completing for topics and destroy.
-        // without sleep resulted in deadlock till leaving cluster.
-        sleep(1000L);
-        topic.destroy();
-        }
-
 
     /**
      * Validate configuration of parameter override in topic resource. Verifies that parameters from topic are overriding

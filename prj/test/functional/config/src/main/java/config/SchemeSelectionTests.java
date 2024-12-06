@@ -103,15 +103,6 @@ public class SchemeSelectionTests
         }
 
     @Test
-    public void distBackingFlashJournal() throws Exception
-        {
-        NamedCache cache = validateNamedCache("dist-backing-flash", CacheService.TYPE_DISTRIBUTED);
-        assertTrue(cache instanceof SafeNamedCache);
-        TestHelper.validateBackingMapType(cache, ObservableSplittingBackingCache.class);
-        releaseNamedCache(cache);
-        }
-
-    @Test
     public void distBackingLocal() throws Exception
         {
         NamedCache cache = validateNamedCache("dist-backing-local", CacheService.TYPE_DISTRIBUTED);
@@ -126,15 +117,6 @@ public class SchemeSelectionTests
         NamedCache cache = validateNamedCache("dist-backing-paged-external", CacheService.TYPE_DISTRIBUTED);
         assertTrue(cache instanceof SafeNamedCache);
         TestHelper.validateBackingMapType(cache, SerializationPagedCache.class);
-        releaseNamedCache(cache);
-        }
-
-    @Test
-    public void distBackingRamJournal() throws Exception
-        {
-        NamedCache cache = validateNamedCache("dist-backing-ram", CacheService.TYPE_DISTRIBUTED);
-        assertTrue(cache instanceof SafeNamedCache);
-        TestHelper.validateBackingMapType(cache, ObservableSplittingBackingCache.class);
         releaseNamedCache(cache);
         }
 
@@ -159,15 +141,6 @@ public class SchemeSelectionTests
         }
 
     @Test
-    public void distBackingRwbmFlashJournal() throws Exception
-        {
-        NamedCache cache = validateNamedCache("dist-backing-rwbm-flash", CacheService.TYPE_DISTRIBUTED);
-        assertTrue(cache instanceof SafeNamedCache);
-        TestHelper.validateBackingMapType(cache, ReadWriteSplittingBackingMap.class);
-        releaseNamedCache(cache);
-        }
-
-    @Test
     public void distBackingRwbmLocal() throws Exception
         {
         NamedCache cache = validateNamedCache("dist-backing-rwbm-local", CacheService.TYPE_DISTRIBUTED);
@@ -182,15 +155,6 @@ public class SchemeSelectionTests
         NamedCache cache = validateNamedCache("dist-backing-rwbm-paged-external", CacheService.TYPE_DISTRIBUTED);
         assertTrue(cache instanceof SafeNamedCache);
         TestHelper.validateBackingMapType(cache, ReadWriteBackingMap.class);
-        releaseNamedCache(cache);
-        }
-
-    @Test
-    public void distBackingRwbmRamJournal() throws Exception
-        {
-        NamedCache cache = validateNamedCache("dist-backing-rwbm-ram", CacheService.TYPE_DISTRIBUTED);
-        assertTrue(cache instanceof SafeNamedCache);
-        TestHelper.validateBackingMapType(cache, ReadWriteSplittingBackingMap.class);
         releaseNamedCache(cache);
         }
 

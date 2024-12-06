@@ -99,15 +99,6 @@ public class CustomSchemeTests
         }
 
     @Test
-    public void distBackingCustomFlashJournal() throws Exception
-        {
-        NamedCache cache = validateNamedCache("dist-backing-flashjournal-custom", CacheService.TYPE_DISTRIBUTED);
-        assertTrue(cache instanceof SafeNamedCache);
-        TestHelper.validateBackingMapType(cache, ObservableSplittingBackingCache.class);
-        cache.release();
-        }
-
-    @Test
     public void distBackingCustomOverflow() throws Exception
         {
         NamedCache cache = validateNamedCache("dist-backing-overflow-custom", CacheService.TYPE_DISTRIBUTED);
@@ -153,15 +144,6 @@ public class CustomSchemeTests
         NamedCache cache = validateNamedCache("dist-backing-paged-external-custom", CacheService.TYPE_DISTRIBUTED);
         assertTrue(cache instanceof SafeNamedCache);
         TestHelper.validateBackingMapType(cache, CustomClasses.CustomSerializationPagedCache.class);
-        cache.release();
-        }
-
-    @Test
-    public void distBackingCustomRamJournal() throws Exception
-        {
-        NamedCache cache = validateNamedCache("dist-backing-ramjournal-custom", CacheService.TYPE_DISTRIBUTED);
-        assertTrue(cache instanceof SafeNamedCache);
-        TestHelper.validateBackingMapType(cache, ObservableSplittingBackingCache.class);
         cache.release();
         }
 
