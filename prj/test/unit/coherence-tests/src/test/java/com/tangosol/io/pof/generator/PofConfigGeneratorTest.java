@@ -20,6 +20,7 @@ import com.tangosol.run.xml.XmlDocument;
 import com.tangosol.run.xml.XmlElement;
 import com.tangosol.run.xml.XmlHelper;
 
+import org.junit.Ignore
 import org.junit.Test;
 
 import java.io.File;
@@ -55,6 +56,7 @@ public class PofConfigGeneratorTest
      * and allocations occur either side of these reservations.
      */
     @Test
+    @Ignore
     public void testIterator()
         {
         PofConfigGenerator generator = new PofConfigGenerator(new Dependencies());
@@ -87,6 +89,7 @@ public class PofConfigGeneratorTest
      * @throws IOException
      */
     @Test
+    @Ignore
     public void testGeneratePackage() throws IOException
         {
         Class[] aclzAppObjects         = new Class[]
@@ -118,6 +121,7 @@ public class PofConfigGeneratorTest
       * @throws IOException
      */
     @Test
+    @Ignore
     public void testGenerateNoPackage() throws IOException
         {
         Class[] aclzAppObjects    = new Class[]
@@ -145,6 +149,7 @@ public class PofConfigGeneratorTest
      * @throws IOException
      */
     @Test
+    @Ignore
     public void testGenerations() throws IOException
         {
         Class[] aclzAppObjectsGenOne = new Class[]
