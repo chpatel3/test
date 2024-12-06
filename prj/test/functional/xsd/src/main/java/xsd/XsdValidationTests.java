@@ -109,9 +109,6 @@ public class XsdValidationTests
 
         XmlValidator.validate("../../../coherence-concurrent/src/main/resources/coherence-concurrent-config.xml");
         XmlValidator.validate("../../../coherence-concurrent/src/main/resources/coherence-concurrent-client-config.xml");
-
-        XmlValidator.validate("../../../coherence-web/src/main/resources/default-session-cache-config.xml");
-        XmlValidator.validate("../../../coherence-web/src/main/resources/default-federated-session-cache-config.xml");
         }
 
    /**
@@ -127,7 +124,6 @@ public class XsdValidationTests
         XmlValidator.validate("system-property-coherence-cache-config.xml");
         XmlValidator.validate("system-property-tangosol-coherence.xml");
         XmlValidator.validate("system-property-tangosol-coherence-override.xml");
-        XmlValidator.validate("system-property-federation.xml");
         }
 
     /**

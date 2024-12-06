@@ -35,6 +35,7 @@
             <groupId>${coherence.group.id}.tests</groupId>
             <artifactId>grpc-client-tck</artifactId>
             <version>${project.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
