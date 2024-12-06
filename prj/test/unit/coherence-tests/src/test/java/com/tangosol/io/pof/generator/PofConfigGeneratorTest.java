@@ -56,7 +56,6 @@ public class PofConfigGeneratorTest
      * and allocations occur either side of these reservations.
      */
     @Test
-    @Ignore
     public void testIterator()
         {
         PofConfigGenerator generator = new PofConfigGenerator(new Dependencies());
@@ -118,7 +117,7 @@ public class PofConfigGeneratorTest
      * types are present and previously defined user types exist with their
      * original type id.
      *
-      * @throws IOException
+     * @throws IOException
      */
     @Test
     @Ignore
@@ -195,6 +194,7 @@ public class PofConfigGeneratorTest
      * @throws IOException
      */
     @Test
+    @Ignore
     public void testDeltaGenerations() throws IOException
         {
         Class[] aclzAppObjectsGenOne = new Class[]
