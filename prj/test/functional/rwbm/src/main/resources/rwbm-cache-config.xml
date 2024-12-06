@@ -169,10 +169,6 @@
       </init-params>
     </cache-mapping>
     <cache-mapping>
-      <cache-name>dist-rwbm-w-ramjournal</cache-name>
-      <scheme-name>distributed-rwbm-w-ramjournal</scheme-name>
-    </cache-mapping>
-    <cache-mapping>
         <cache-name>dist-rwbm-wb-ea</cache-name>
         <scheme-name>distributed-rwbm-wb-ea</scheme-name>
     </cache-mapping>
@@ -497,27 +493,6 @@
             </class-scheme>
           </cachestore-scheme>
           <write-delay-seconds>{write-delay-seconds 6}</write-delay-seconds>
-        </read-write-backing-map-scheme>
-      </backing-map-scheme>
-      <autostart>true</autostart>
-    </distributed-scheme>
-
-    <distributed-scheme>
-      <scheme-name>distributed-rwbm-w-ramjournal</scheme-name>
-      <thread-count-max>1</thread-count-max>
-      <thread-count-min>1</thread-count-min>
-
-      <backing-map-scheme>
-        <read-write-backing-map-scheme>
-          <internal-cache-scheme>
-             <ramjournal-scheme/>
-          </internal-cache-scheme>
-
-          <cachestore-scheme>
-            <class-scheme>
-              <class-name>{store com.oracle.coherence.testing.TestCacheStore}</class-name>
-            </class-scheme>
-          </cachestore-scheme>
         </read-write-backing-map-scheme>
       </backing-map-scheme>
       <autostart>true</autostart>
