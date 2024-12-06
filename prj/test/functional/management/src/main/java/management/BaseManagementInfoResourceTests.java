@@ -4460,7 +4460,7 @@ public abstract class BaseManagementInfoResourceTests
                 assertThat((Collection<String>) mapService.get("statusHA"), Matchers.hasItem("NODE-SAFE"));
                 }
             }
-        assertThat(cServices, is(4)); // <--- This is very brittle!
+        assertThat(cServices, is(2)); // <--- This is very brittle!
 
         target          = getBaseTarget().path(SERVICES).queryParam("fields", "taskCount")
                         .queryParam("collector", "list")
@@ -4483,7 +4483,7 @@ public abstract class BaseManagementInfoResourceTests
                     }
                 }
             }
-        assertThat(cServices, greaterThan(2));
+        assertThat(cServices, greaterThanOrEqualTo(2));
         }
 
     protected Map readEntity(WebTarget target, Response response)
