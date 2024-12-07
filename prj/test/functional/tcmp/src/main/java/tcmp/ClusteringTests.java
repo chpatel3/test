@@ -69,8 +69,8 @@ public class ClusteringTests
         assertTrue(cluster instanceof OperationalContext);
         OperationalContext ctx = (OperationalContext) cluster;
 
-        assertEquals (ctx.getEdition(), 5);
-        assertEquals (ctx.getEditionName(), "GE");
+        assertEquals (ctx.getEdition(), 3);
+        assertEquals (ctx.getEditionName(), "CE");
         assertEquals (ctx.getFilterMap().size(), 1);
         assertEquals (ctx.getSerializerMap().size(), 2);
         assertNotNull(ctx.getIdentityAsserter());
