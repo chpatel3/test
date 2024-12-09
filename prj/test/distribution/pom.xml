@@ -136,7 +136,7 @@
       <!-- the following additional modules are buildable by this profile -->
       <modules>
         <module>build-artifacts</module>
-        <!--<module>grpc-compatibility</module>-->
+        <module>grpc-compatibility</module>
         <module>topics-compatibility</module>
         <module>jcache-compliance</module>
         <module>osgi</module>

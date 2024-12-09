@@ -37,8 +37,7 @@
     <coherence.compatability.maxJavaVersion/>
     <skip.similarity.search>false</skip.similarity.search>
 
-    <maven.home.dir>${env.MAVEN_HOME}</maven.home.dir>
-    <coherence.compatability.settings>${maven.home.dir}/conf/settings.xml</coherence.compatability.settings>
+    <coherence.compatability.settings>${env.DEV_ROOT}/.github/maven/settings.xml</coherence.compatability.settings>
   </properties>
 
   <build>
